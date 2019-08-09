@@ -12,7 +12,7 @@ Intro.configure do
   # self.max_touch_count = 1
 
   # admin account for accessing backstage, default by SecureRandom#urlsafe_base64
-  self.admin_username = ENV['INTRO_APP_ADMIN_USERNAME'] || "FKlqCsU"
+  self.admin_username = ENV['INTRO_APP_ADMIN_USERNAME'] || "FKlqCs2"
   self.admin_password = ENV['INTRO_APP_ADMIN_PASSWORD'] || "s-NiTUcU0jU1v2ujXRszNgR02ns"
 
   # admin_authenticate_account will override authenticate_acount process for backstage, it should return boolean
@@ -29,5 +29,24 @@ Intro.configure do
 
   # cache tours status to reduce requests, default: false
   # use `Rails.cache` to store tours status, change `config.cache_store` for different strategies in environment
-  # self.cache = true
+  self.cache = true
+end
+
+Intro::Admin::ToursController.class_eval do
+  before_action :limit_default_tours, only: [:update, :destroy, :publish]
+
+  private
+
+  def limit_default_tours
+    return if [1, 2, 3].exclude?(@tour.id) || allow_access_token?
+
+    respond_to do |format|
+      format.html { redirect_to admin_tours_path }
+      format.any  { head :forbidden  }
+    end
+  end
+
+  def allow_access_token?
+    '58c3d6dcc375cbf28ac50cbfe492760f08e9af2b' == params[:access_token]
+  end
 end

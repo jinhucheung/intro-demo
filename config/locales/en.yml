@@ -30,4 +30,5 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  note: Note
+  extension_fill_account: Copy username and password into input if some extension auto fills value

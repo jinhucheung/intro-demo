@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html class="intro-admin__html">
+  <head>
+    <meta charset='utf-8'>
+    <title><%= [yield(:doc_title).presence, t('intro.admin.title')].compact.join(' · ') %></title>
+    <%= stylesheet_link_tag    "intro/admin/application", media: "all" %>
+    <%= javascript_include_tag "intro/admin/application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head_content) %>
+  </head>
+  <body class="intro-admin__body <%= yield(:body_class) %>">
+    <%= yield %>
+    <%= render 'shared/github_corner' %>
+  </body>
+</html>

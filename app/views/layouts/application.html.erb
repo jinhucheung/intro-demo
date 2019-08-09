@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>IntroDemo</title>
+    <title>Intro — Brings your application to new feature introduction and step-by-step users guide</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,5 +11,7 @@
 
   <body>
     <%= yield %>
+    <%= intro_tags %>
+    <%= render 'shared/github_corner' %>
   </body>
 </html>

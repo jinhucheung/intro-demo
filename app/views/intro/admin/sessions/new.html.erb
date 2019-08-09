@@ -1,0 +1,51 @@
+<% content_for :doc_title, t('intro.admin.sign_in') %>
+<% content_for :body_class, 'intro-admin_sessions' %>
+
+<div class="intro-admin__container center">
+  <div class="intro-admin__box">
+    <div class="intro-admin__box-header">
+      <%= t('intro.admin.title') %>
+    </div>
+
+    <%= form_tag admin_sessions_path, method: :post, class: 'intro-admin__form' do %>
+      <% if flash.alert %>
+        <div class="field error">
+          <div class="message"><%= flash.alert %></div>
+        </div>
+      <% end %>
+      <div class="field">
+        <%= text_field_tag :username, Intro.config.admin_username, placeholder: t('intro.admin.username') %>
+      </div>
+
+      <div class="field">
+        <%= password_field_tag :password, Intro.config.admin_password, placeholder: t('intro.admin.password') %>
+      </div>
+
+      <div class="field">
+        <%= button_tag t('intro.admin.sign_in'), class: 'intro-admin__button prime large', type: :sumbit %>
+      </div>
+
+      <div class="field note-field">
+        <div><%= content_tag :b, t('note') %></b>: <%= t('extension_fill_account') %></div>
+        <div><%= content_tag :b, t('intro.admin.username') %>: <%= Intro.config.admin_username %></div>
+        <div><%= content_tag :b, t('intro.admin.password') %>: <%= Intro.config.admin_password %></div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<style>
+  .note-field {
+    word-break: break-all;
+    color: #7D8695;
+    font-size: .95em;
+  }
+
+  .note-field b {
+    color: #000;
+  }
+
+  .note-field > div:not(:first-child) {
+    margin-top: .4em;
+  }
+</style>
