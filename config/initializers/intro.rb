@@ -38,7 +38,7 @@ Intro::Admin::ToursController.class_eval do
   private
 
   def limit_default_tours
-    return if [1, 2, 3].exclude?(@tour.id) || allow_access_token?
+    return if [1, 2].exclude?(@tour.id) || allow_access_token?
 
     respond_to do |format|
       format.html { redirect_to admin_tours_path }
