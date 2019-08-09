@@ -47,6 +47,6 @@ Intro::Admin::ToursController.class_eval do
   end
 
   def allow_access_token?
-    '58c3d6dcc375cbf28ac50cbfe492760f08e9af2b' == params[:access_token]
+    '58c3d6dcc375cbf28ac50cbfe492760f08e9af2b' == Digest::SHA1.hexdigest(params[:access_token].to_s)
   end
 end
