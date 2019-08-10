@@ -36,7 +36,7 @@ gem 'autoprefixer-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'intro'
+gem 'intro', '>= 0.1'
 
 group :production do
   gem 'pg', '~> 0.20.0'
