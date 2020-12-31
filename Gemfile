@@ -35,7 +35,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'intro', '>= 0.4.0'
 
 group :production do
-  gem 'pg', '~> 0.20.0'
+  gem 'pg', '~> 1.1'
 end
 
 group :development, :test do
