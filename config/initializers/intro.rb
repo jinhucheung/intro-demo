@@ -12,8 +12,8 @@ Intro.configure do
   # self.max_touch_count = 1
 
   # admin account for accessing backstage, default by SecureRandom#urlsafe_base64
-  self.admin_username = ENV['INTRO_APP_ADMIN_USERNAME'] || "KeHoamA"
-  self.admin_password = ENV['INTRO_APP_ADMIN_PASSWORD'] || "JnJQrCOKTba0q303sPAX-Gk0w8s"
+  self.admin_username = ENV['INTRO_APP_ADMIN_USERNAME'] || "rku9_Xs"
+  self.admin_password = ENV['INTRO_APP_ADMIN_PASSWORD'] || "spzM-EF25i16V3GmtWLyOrgOoWU"
 
   # admin_authenticate_account will override authenticate_acount process for backstage, it should return boolean
   # self.admin_authenticate_account = -> { current_user.try(:has_admin_role?) }
@@ -33,4 +33,8 @@ Intro.configure do
 
   # display tour without signing in, default: false
   # self.visible_without_signing_in = true
+
+  # override intro tour styles, default: false
+  self.custom_assets = true
+  # self.custom_assets = 'intro/custom'
 end

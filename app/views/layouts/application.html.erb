@@ -11,9 +11,7 @@
 
   <body>
     <%= yield %>
-    <%= intro_tags do %>
-      <%= javascript_pack_tag 'intro/custom' %>
-    <% end %>
     <%= render 'shared/github_corner' %>
+    <%= intro_tags %>
   </body>
 </html>
