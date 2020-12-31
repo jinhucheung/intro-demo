@@ -22,8 +22,15 @@ $ bundle install
 Do migrate:
 
 ```
-$ bundle exec rake db:create
-$ bundle exec rake db:migrate
+$ rails db:create
+$ rails db:migrate
+```
+
+Then compile assets:
+
+```
+$ rails assets:precompile
+$ ./bin/webpack-dev-server
 ```
 
 ## Contributing
